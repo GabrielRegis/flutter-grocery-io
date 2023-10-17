@@ -37,7 +37,7 @@ Grocer.io is a personal project designed to simplify the creation of shopping li
    ├─ core
    │  ├─ app
    │  ├─ date_and_time
-design_system
+   │  ├─ design_system
    │  ├─ local_storage
    │  ├─ navigation
    │  ├─ providers
