@@ -34,21 +34,21 @@ Grocer.io is a personal project designed to simplify the creation of shopping li
 │  ├─ animations
 │  └─ fonts
 └─ lib
-   ├─ core
+   ├─ core  [Core features and configurations]
    │  ├─ app
    │  ├─ date_and_time
-   │  ├─ design_system
+   │  ├─ design_system [Design system widgets and utils]
    │  ├─ local_storage
    │  ├─ navigation
    │  ├─ providers
    │  ├─ string
-   │  └─ theme
+   │  └─ theme [Theme configuration based on Material 3]
    └─ features
       ├─ categories
-      ├─ groceries
-      │  ├─ atoms
-      │  ├─ models
-      │  ├─ screens
-      │  └─ widgets
+      ├─ groceries 
+      │  ├─ atoms [Atomic stores]
+      │  ├─ models [Entities declarations]
+      │  ├─ screens [Feature screens]
+      │  └─ widgets [Feature widgets]
       └─ purchases
 ```
