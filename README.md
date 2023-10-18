@@ -88,4 +88,9 @@ Additionally, this design allows for comprehensive unit testing of the widget's 
 
 - **Past Shopping Summaries:** Access summaries of previous shopping trips to understand purchase history.
 
+<<<<<<< HEAD
 - **Expense Statistics:** Gain insights into weekly and monthly spending and track changes in product prices to identify items that have become more expensive or cheaper over time.
+=======
+- **Expense Statistics:** Gain insights into weekly and monthly spending and track changes in product prices to identify items that have become more expensive or cheaper over time.
+
+>>>>>>> 1398b7e8ba5c34f6feb3e58dca7d2ba4f4659f53
