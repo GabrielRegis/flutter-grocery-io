@@ -9,7 +9,7 @@ class CurrentThemeAtom extends _$CurrentThemeAtom with SavableProvider {
   @override
   ThemeMode? build() {
     final theme = super.build();
-    return theme ?? ThemeMode.dark;
+    return theme ?? ThemeMode.light;
   }
 
   void toggleTheme() {

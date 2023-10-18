@@ -11,16 +11,15 @@ class AppScreenWithNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final (
-      colors: colors,
+      colors: _,
       texts: _,
       customColors: _,
     ) = context.theme;
     return Scaffold(
-      extendBody: false,
+      extendBody: true,
       bottomNavigationBar: BottomBar(
         navigationShell: navigationShell,
       ),
-      backgroundColor: colors.surface,
       body: navigationShell,
     );
   }

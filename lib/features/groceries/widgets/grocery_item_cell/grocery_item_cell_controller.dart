@@ -30,7 +30,10 @@ class GroceryItemCellController extends _$GroceryItemCellController {
     showModalBottomSheet(
       context: context,
       useSafeArea: true,
+      useRootNavigator: true,
       isScrollControlled: true,
+      barrierColor: Colors.black.withOpacity(0.3),
+      elevation: 2,
       builder: (c) => UpdateGroceryModal(
         item: item,
       ),

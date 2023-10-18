@@ -26,7 +26,7 @@ class AppPriceInput extends StatelessWidget {
             padding: const Insets.horizontal(8),
             child: Container(
               decoration: BoxDecoration(
-                color: colors.surface,
+                color: colors.background,
                 borderRadius: BorderRadius.circular(
                   20,
                 ),

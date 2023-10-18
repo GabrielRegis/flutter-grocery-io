@@ -9,6 +9,9 @@ class AppBorderCard extends StatelessWidget {
   final double elevation;
   final double radius;
   final Gradient? gradient;
+  final List<BoxShadow>? shadow;
+  final Color? color;
+
   final Function()? onLongPress;
   const AppBorderCard(
       {super.key,
@@ -16,7 +19,9 @@ class AppBorderCard extends StatelessWidget {
       this.onTap,
       this.gradient,
       this.onLongPress,
+      this.shadow,
       this.elevation = 1,
+      this.color,
       this.radius = 12});
 
   @override
@@ -31,6 +36,8 @@ class AppBorderCard extends StatelessWidget {
       decoration: BoxDecoration(
         border: GradientBoxBorder(gradient: gradient ?? colors.glassGradient),
         borderRadius: BorderRadius.circular(radius),
+        boxShadow: shadow,
+        color: color,
       ),
       child: InkWell(
         borderRadius: BorderRadius.circular(radius),

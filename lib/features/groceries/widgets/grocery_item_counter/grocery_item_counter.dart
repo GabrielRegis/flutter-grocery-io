@@ -29,6 +29,7 @@ class GroceryItemCounter extends ConsumerWidget {
             onSubtract: controller.onSubtract,
             onAdd: controller.onAdd,
             count: count,
+            color: textColor,
           ),
         ),
         PriceTagLabel(

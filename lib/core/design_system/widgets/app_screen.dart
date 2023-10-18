@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_grocery_list/core/design_system/utils/insets.dart';
 import 'package:flutter_grocery_list/core/theme/utils/theme_utils.dart';
@@ -44,22 +47,34 @@ class AppScreen extends StatelessWidget {
         child: CustomScrollView(
           controller: scrollController,
           slivers: [
-            SliverAppBar.medium(
-              title: Text(navbarTitle, style: headerStyle),
-              actions: const [
-                Padding(
-                  padding: Insets.all(4),
-                  child: ThemeButton(),
-                )
-              ],
-              centerTitle: false,
-              surfaceTintColor: colors.surface,
-              stretch: true,
-            ),
+            Platform.isAndroid
+                ? SliverAppBar.medium(
+                    title: Text(navbarTitle, style: headerStyle),
+                    actions: const [
+                      Padding(
+                        padding: Insets.all(4),
+                        child: ThemeButton(),
+                      )
+                    ],
+                    centerTitle: false,
+                    surfaceTintColor: colors.surface,
+                    stretch: true,
+                  )
+                : CupertinoSliverNavigationBar(
+                    key: Key(navbarTitle),
+                    trailing: const ThemeButton(),
+                    alwaysShowMiddle: false,
+                    backgroundColor: colors.surface,
+                    largeTitle: Text(navbarTitle, style: headerStyle),
+                    middle: Text(
+                      navbarTitle,
+                      style: headerStyle?.copyWith(fontSize: 16),
+                    ),
+                  ),
             ...headerChildren,
             SliverFillRemaining(
               child: body,
-            )
+            ),
           ],
         ),
       ),

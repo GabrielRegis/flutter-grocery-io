@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_grocery_list/core/design_system/utils/safe_area.dart';
+import 'package:flutter_grocery_list/core/design_system/widgets/app_bottom_bar.dart';
 import 'package:flutter_grocery_list/core/navigation/widgets/bottom_bar/bottom_bar_controller.dart';
 import 'package:flutter_grocery_list/core/theme/utils/theme_utils.dart';
 import 'package:flutter_grocery_list/features/groceries/atoms/checked_items_atom.dart';
@@ -17,8 +18,8 @@ class BottomBar extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final (
-      colors: colors,
-      texts: texts,
+      colors: _,
+      texts: _,
       customColors: _,
     ) = context.theme;
     final groceciesAmount = GroceryItemsStore(ref).watchItems.length;
@@ -30,39 +31,42 @@ class BottomBar extends ConsumerWidget {
     final controller =
         ref.read(bottomBarControllerProvider.call(navigationShell).notifier);
 
-    return Stack(
-      clipBehavior: Clip.none,
-      children: [
-        RepaintBoundary(
-          child: BottomNavigationBar(
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.list),
-                label: 'List',
+    return ConstrainedBox(
+      constraints: const BoxConstraints(
+        maxHeight: 100,
+      ),
+      child: Stack(
+        clipBehavior: Clip.none,
+        alignment: Alignment.center,
+        children: [
+          Positioned(
+            bottom: 20,
+            child: RepaintBoundary(
+              child: AppBottomBar(
+                onTap: controller.navigate,
+                currentIndex: navigationShell.currentIndex,
+                items: [
+                  AppBottomBarItem(
+                    icon: Icons.list,
+                    label: "Items",
+                  ),
+                  AppBottomBarItem(
+                      icon: Icons.shopping_cart_rounded, label: "Purchases"),
+                ],
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart_rounded),
-                label: 'Purchases',
-              ),
-            ],
-            unselectedLabelStyle: texts.labelSmall,
-            selectedLabelStyle:
-                texts.labelSmall?.copyWith(fontWeight: FontWeight.w800),
-            currentIndex: navigationShell.currentIndex,
-            selectedItemColor: colors.primary,
-            onTap: controller.navigate,
+            ),
           ),
-        ),
-        AnimatedPositioned(
-          duration: 300.ms,
-          curve: Curves.easeInOut,
-          bottom: shouldShowSummary ? 0 : -200,
-          width: context.mediaQuery.size.width,
-          child: const RepaintBoundary(
-            child: CartSummary(),
-          ),
-        )
-      ],
+          AnimatedPositioned(
+            duration: 300.ms,
+            curve: Curves.easeInOut,
+            bottom: shouldShowSummary ? 0 : -200,
+            width: context.mediaQuery.size.width,
+            child: const RepaintBoundary(
+              child: CartSummary(),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

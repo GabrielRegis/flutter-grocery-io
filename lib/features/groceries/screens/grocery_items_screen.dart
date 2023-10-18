@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_grocery_list/core/design_system/utils/insets.dart';
+import 'package:flutter_grocery_list/core/design_system/widgets/app_divider.dart';
 import 'package:flutter_grocery_list/core/design_system/widgets/app_screen.dart';
 import 'package:flutter_grocery_list/core/theme/utils/theme_utils.dart';
 import 'package:flutter_grocery_list/features/groceries/widgets/grocery_item_input/grocery_item_input.dart';
@@ -26,9 +27,14 @@ class GroceryItemsScreen extends StatelessWidget {
             padding: Insets.bot(16),
             child: GroceryItemsSuggestions(),
           ),
+          AppDivider(),
           Expanded(
-            child: Padding(
-              padding: Insets.horizontal(16),
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(12),
+                ),
+              ),
               child: GroceryList(),
             ),
           ),
@@ -55,7 +61,7 @@ class GroceryItemsScreen extends StatelessWidget {
           ),
         )
       ],
-      navbarTitle: 'Grocer.io',
+      navbarTitle: 'Grocer.io 🍊',
     );
   }
 }

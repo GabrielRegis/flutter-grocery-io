@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_grocery_list/core/design_system/utils/insets.dart';
-import 'package:flutter_grocery_list/core/design_system/widgets/app_glass_card.dart';
+import 'package:flutter_grocery_list/core/design_system/widgets/app_card.dart';
 import 'package:flutter_grocery_list/core/design_system/widgets/radio_check.dart';
 import 'package:flutter_grocery_list/core/theme/utils/theme_utils.dart';
 import 'package:flutter_grocery_list/features/groceries/atoms/checked_items_atom.dart';
@@ -28,15 +28,16 @@ class GroceryItemCell extends ConsumerWidget {
         .select<bool>((value) => value.contains(itemName));
 
     final cellColor =
-        isChecked ? colors.primary.withOpacity(.7) : colors.surface;
+        isChecked ? colors.primary.withOpacity(.9) : colors.background;
 
     final textColor = isChecked ? colors.onPrimary : colors.onSurface;
 
-    return AppGlassCard(
+    return AppCard(
       key: Key('${itemName}_card'),
       onLongPress: controller.onEditCellPressed,
       onTap: controller.toggleItem,
       color: cellColor,
+      radius: 0,
       child: Slidable(
         key: ValueKey(itemName),
         startActionPane: ActionPane(
@@ -56,7 +57,7 @@ class GroceryItemCell extends ConsumerWidget {
         ),
         child: Padding(
           padding: const Insets.all(
-            16,
+            32,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -69,6 +70,7 @@ class GroceryItemCell extends ConsumerWidget {
                       child: RadioCheck(
                         key: Key("${itemName}check"),
                         isChecked: isChecked,
+                        color: textColor,
                       ),
                     ),
                     Expanded(

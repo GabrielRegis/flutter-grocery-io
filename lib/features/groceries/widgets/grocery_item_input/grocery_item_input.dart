@@ -19,7 +19,7 @@ class GroceryItemInput extends ConsumerWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: colors.surface,
+        color: colors.surface.withOpacity(.8),
         borderRadius: BorderRadius.circular(12),
       ),
       child: PaddingRow(

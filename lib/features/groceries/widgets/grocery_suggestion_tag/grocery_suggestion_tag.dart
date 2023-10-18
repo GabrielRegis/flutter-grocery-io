@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_grocery_list/core/design_system/utils/insets.dart';
+import 'package:flutter_grocery_list/core/design_system/utils/shadow.dart';
 import 'package:flutter_grocery_list/core/design_system/widgets/app_border_card.dart';
-import 'package:flutter_grocery_list/core/theme/instances/app_colors.dart';
 import 'package:flutter_grocery_list/core/theme/utils/theme_utils.dart';
 import 'package:flutter_grocery_list/features/groceries/models/grocery_item.dart';
 import 'package:flutter_grocery_list/features/groceries/widgets/grocery_suggestion_tag/grocery_suggestion_tag_controller.dart';
@@ -25,7 +25,16 @@ class GrocerySuggestionTag extends ConsumerWidget {
     return AppBorderCard(
       radius: 8,
       elevation: 0,
-      gradient: colors.successGradient,
+      color: colors.background,
+      shadow: const [
+        AppBoxShadow.evenLessBlured(),
+      ],
+      gradient: LinearGradient(
+        colors: [
+          colors.secondary,
+          colors.secondary.withOpacity(.6),
+        ],
+      ),
       onLongPress: controller.onLongPress,
       onTap: controller.onTap,
       child: Padding(

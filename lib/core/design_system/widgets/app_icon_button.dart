@@ -7,17 +7,30 @@ class AppIconButton extends StatelessWidget {
   final IconData icon;
   final Color? color;
   final double? size;
+  final BoxBorder? border;
+  final Color? backgroundColor;
+  final List<BoxShadow>? shadow;
   const AppIconButton(
-      {super.key, this.onTap, required this.icon, this.color, this.size});
+      {super.key,
+      this.onTap,
+      required this.icon,
+      this.color,
+      this.backgroundColor,
+      this.size,
+      this.border,
+      this.shadow});
 
   @override
   Widget build(BuildContext context) {
     return AppCard(
       elevation: 0,
-      color: Colors.transparent,
+      border: border,
+      shadow: shadow,
+      radius: 8,
+      color: backgroundColor,
       onTap: onTap,
       child: Padding(
-        padding: const Insets.all(8),
+        padding: const Insets.all(6),
         child: Icon(
           icon,
           color: color,

@@ -35,7 +35,9 @@ class AppGlassCard extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: 100,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(
+          radius,
+        ),
       ),
       clipBehavior: Clip.antiAlias,
       child: Stack(
@@ -50,7 +52,9 @@ class AppGlassCard extends StatelessWidget {
           ),
           DecoratedBox(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(
+                radius,
+              ),
               border: GradientBoxBorder(
                 gradient: borderGradient ?? customColors.glassGradient,
               ),

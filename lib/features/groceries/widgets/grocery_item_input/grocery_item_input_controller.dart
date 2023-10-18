@@ -28,9 +28,11 @@ class GroceryItemInputController extends _$GroceryItemInputController {
     if (text.isNotEmpty) {
       final items = SavedItemsStore(ref).items;
 
-      final filteredItems = items.values.where(
-        (element) => element.name.search(text),
-      );
+      final filteredItems = items.values
+          .where(
+            (element) => element.name.search(text),
+          )
+          .toList();
 
       GroceryItemsStore(ref).notifier.addItem(
             filteredItems.isNotEmpty

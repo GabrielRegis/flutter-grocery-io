@@ -11,6 +11,7 @@ class AppCard extends StatelessWidget {
   final Gradient? gradient;
   final Function()? onLongPress;
   final List<BoxShadow>? shadow;
+  final BoxBorder? border;
   const AppCard(
       {super.key,
       this.child,
@@ -20,19 +21,22 @@ class AppCard extends StatelessWidget {
       this.onLongPress,
       this.elevation = 1,
       this.shadow,
+      this.border,
       this.radius = 12});
 
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: 150.ms,
-      curve: Curves.easeInOut,
+      curve: Curves.linear,
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
-          color: color,
-          gradient: gradient,
-          borderRadius: BorderRadius.circular(radius),
-          boxShadow: shadow),
+        color: color,
+        gradient: gradient,
+        borderRadius: BorderRadius.circular(radius),
+        boxShadow: shadow,
+        border: border,
+      ),
       child: InkWell(
         borderRadius: BorderRadius.circular(radius),
         onTap: () {

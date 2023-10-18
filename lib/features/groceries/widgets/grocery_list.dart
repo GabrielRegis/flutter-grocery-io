@@ -2,7 +2,7 @@ import 'package:animated_list_plus/animated_list_plus.dart';
 import 'package:animated_list_plus/transitions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_grocery_list/core/design_system/utils/insets.dart';
+import 'package:flutter_grocery_list/core/design_system/widgets/app_divider.dart';
 import 'package:flutter_grocery_list/features/groceries/atoms/grocery_items_atom.dart';
 import 'package:flutter_grocery_list/features/groceries/models/grocery_item.dart';
 import 'package:flutter_grocery_list/features/groceries/widgets/grocery_item_cell/grocery_item_cell.dart';
@@ -45,11 +45,13 @@ class GroceryList extends ConsumerWidget {
                   sizeFraction: 0.7,
                   curve: Curves.easeInOut,
                   animation: animation,
-                  child: Padding(
-                    padding: const Insets.bot(16),
-                    child: GroceryItemCell(
-                      itemName: item.name,
-                    ),
+                  child: Column(
+                    children: [
+                      GroceryItemCell(
+                        itemName: item.name,
+                      ),
+                      const AppDivider()
+                    ],
                   ),
                 );
               },
