@@ -1,5 +1,4 @@
-# Grocer.io 
-<img src="https://github.com/GabrielRegis/flutter-grocery-io/assets/34111140/13028246-5c85-4d9b-a633-13db0303d6d4" width="150" height="150">
+# Grocer.io 🍊 
 
 Grocer.io is a personal project designed to simplify the creation of shopping lists. This application is under constant development with the aim of providing an efficient and streamlined experience for creating and managing grocery lists. This documentation aims to provide basic information about the project and its current functionality.
 
